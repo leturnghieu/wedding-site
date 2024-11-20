@@ -5,8 +5,8 @@ body {
     padding: 0;
     line-height: 1.6;
     color: #ffffff;
-    background-color: #004080;
-    background-image: url('https://www.transparenttextures.com/patterns/light-wool.png'); /* Nền có họa tiết nhẹ */
+    background-color: #e0ab98;
+    background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
     background-attachment: fixed;
 }
 
@@ -14,9 +14,8 @@ body {
 header {
     text-align: center;
     padding: 2em 0;
-    background: linear-gradient(135deg, #0059b3, #007acc);
+    background-color: #e0ab98;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    border-bottom: 4px solid #004080;
     position: relative;
 }
 
@@ -52,6 +51,7 @@ header::after {
 section {
     padding: 2em;
     background: rgba(0, 102, 204, 0.8);
+    background-color: #e0ab98;
     margin: 1em auto;
     border-radius: 10px;
     max-width: 900px;
@@ -97,6 +97,7 @@ ul {
 
 ul li {
     background: #0052a3;
+    background-color: #e0ab98;
     margin: 0.5em 0;
     padding: 1em;
     border-radius: 5px;
@@ -113,25 +114,63 @@ ul li::before {
 }
 
 /* Thư viện hình ảnh */
-.gallery {
+.image-container {
     display: flex;
-    gap: 1em;
+    gap: 20px;
     justify-content: center;
-    flex-wrap: wrap;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+    opacity: 0;
 }
 
-.gallery img {
-    width: 300px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
-    border: 4px solid #0059b3;
+.image {
+    width: 200px;
+    height: 300px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.gallery img:hover {
-    transform: scale(1.05);
-    border-color: #007acc;
+.image-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-left {
+    transform: translateX(-300px);
+    animation: slideInLeft 5s ease-out forwards;
+}
+
+.image-center {
+    animation: fadeIn 5s ease-out forwards;
+}
+
+.image-right {
+    transform: translateX(300px);
+    animation: slideInRight 5s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInRight {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Phần lời chúc */
@@ -142,7 +181,7 @@ textarea {
     padding: 10px;
     border: 1px solid #ffffff;
     border-radius: 5px;
-    background-color: #003366;
+    background-color: #e0ab98;
     color: #ffffff;
     box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -168,7 +207,7 @@ button:hover {
 footer {
     text-align: center;
     padding: 1em 0;
-    background: linear-gradient(135deg, #0059b3, #004080);
+    background-color: #e0ab98;
     font-size: 0.9em;
     color: #d9e6f2;
     border-top: 2px solid #007acc;

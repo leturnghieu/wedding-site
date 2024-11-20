@@ -133,3 +133,20 @@ document.addEventListener("DOMContentLoaded", () => {
     animate(); // Bắt đầu render
 });
 
+// Ảnh chuyển động khi kéo xuống thấy chúng
+
+document.addEventListener("DOMContentLoaded", () => {
+    const imageContainer = document.querySelector(".image-container");
+
+    function handleScroll() {
+        const containerPosition = imageContainer.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        // Khi phần tử vào khung nhìn
+        if (containerPosition < screenHeight - 100) {
+            imageContainer.classList.add("active");
+        }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+});
